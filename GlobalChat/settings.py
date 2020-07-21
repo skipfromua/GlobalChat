@@ -12,7 +12,7 @@ SECRET_KEY = '6$@p=!h+szgt^(3_#+q_wqv8mjqydd!*=h(xg@t-fg^wqs0316'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://globalhat.herokuapp.com/']
+ALLOWED_HOSTS = ['globalhat.herokuapp.com']
 
 # Application definition
 
