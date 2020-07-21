@@ -5,27 +5,32 @@
 		<meta charset="utf-8">
 		<title>GLOBAL CHAT</title>
 		<link href="{% static 'css/style.css' %}" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	</head>
 	<body>
-		<script>
-            function show()
-            {
-                $.ajax({
-                    url: "time.php",
-                    cache: false,
-                    success: function(html){
-                        $("#content").html(html);
-                    }
-                });
-            }
-            $(document).ready(function(){
-                show();
-                setInterval('show()',1000);
+	<script>
+		var id = {{ last_message }}
+        function show()
+        {
+            $.ajax({
+            	type: 'GET',
+                url: "",
+                success: function(message){
+					if (id != message['id']){
+						$("#chat").prepend("<table><tr><td class='message'><p class='regular'>" + message['text_message'] + "</p></td><td class='date'><p class='regular'>" + message['pub_date'] + "</p></td></tr></table><br>")
+						id = message['id']
+					}
+                }
             });
-        </script>
+        }
+        $(document).ready(function(){
+            show();
+            setInterval('show()', 1000);
+        });
+    </script>
 		<div class="container">
 			<h1> <p class="main"> Hello, this is my Global chat! </p> </h1>
-			<div class="chat" >
+			<div id="chat" class="chat" >
 				{% block chat %}
 				{% endblock %}
 			</div>

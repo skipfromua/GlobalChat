@@ -3,13 +3,13 @@
 {% block chat %}
     {% if messages %}
          {% for message in messages %}
-                    <table>
+                    <table id="message_table">
                         <tr>
                             <td class="message">
-                                <p class="regular">{{ message.text_message }}</p>
+                                <p id="text_message" class="regular">{{ message.text_message }}</p>
                             </td>
                             <td class="date">
-                                <p class="regular">{{ message.pub_date }}</p>
+                                <p id="pub_date" class="regular">{{ message.pub_date|date:'H:i:s' }}</p>
                             </td>
                         </tr>
                     </table><br>
