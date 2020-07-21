@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	{% load static %}
+	<head>
+		<meta charset="utf-8">
+		<title>GLOBAL CHAT</title>
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<h1> <p class="main"> Hello, this is my Global chat! </p> </h1>
+			<div class="chat" >
+				{% block chat %}
+				{% endblock %}
+			</div>
+			<div class="margin">
+				{% block messages %}
+				{% endblock %}
+			</div>
+		</div>
+	</body>
+</html>

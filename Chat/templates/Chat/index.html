@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block chat %}
+    {% if messages %}
+         {% for message in messages %}
+                    <table>
+                        <tr>
+                            <td class="message">
+                                <p class="regular">{{ message.text_message }}</p>
+                            </td>
+                            <td class="date">
+                                <p class="regular">{{ message.pub_date }}</p>
+                            </td>
+                        </tr>
+                    </table><br>
+        {% endfor %}
+    {% else %}
+              <p class="regular">Nothing here!!</p>
+    {% endif %}
+{% endblock %}
+
+
+{% block messages %}
+    <form method="post">
+        {% csrf_token %}
+        <input class="textfield" type="TEXTAREA" name="message">
+        <input class="button" type="submit" name="submit" value="Send message">
+    </form>
+{% endblock %}
