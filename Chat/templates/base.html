@@ -7,6 +7,22 @@
 		<link href="{% static 'css/style.css' %}" rel="stylesheet">
 	</head>
 	<body>
+		<script>
+            function show()
+            {
+                $.ajax({
+                    url: "time.php",
+                    cache: false,
+                    success: function(html){
+                        $("#content").html(html);
+                    }
+                });
+            }
+            $(document).ready(function(){
+                show();
+                setInterval('show()',1000);
+            });
+        </script>
 		<div class="container">
 			<h1> <p class="main"> Hello, this is my Global chat! </p> </h1>
 			<div class="chat" >
